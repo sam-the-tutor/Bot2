@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Forbidden</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #636b6f;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 100;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .code {
+            font-size: 26px;
+            padding-left: 15px;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .poweredby_container {
+            max-width: 50px;
+            padding-top: 5px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="flex-center position-ref">
+    <div id="playshield" class="poweredby_container">
+        <a href="https://app.responsivevoice.org">
+            <svg viewBox="-50 -50 612 612" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <filter id="black-glow">
+                    <feColorMatrix type="matrix"
+                                   values="0 0 0 0.6   0  0 0 0 0   0  0 0 0 0   0  0 0 0 1 0"></feColorMatrix>
+                    <feGaussianBlur id="filterblur" stdDeviation="0" result="coloredBlur"></feGaussianBlur>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+                <g style="filter:url(#black-glow)">
+                    <path id="svg_1" d="m71,460l-41,-460l451,0l-41,460l-185,52" fill="#c10908"></path>
+                    <path id="svg_2" d="m256,472l149,-41l35,-394l-184,0" fill="#e62e42"></path>
+                </g>
+                <image xlink:href="https://responsivevoice.org/wp-content/uploads/2015/06/mouth.png" id="svg_4"
+                       height="311" width="285" y="95" x="114"></image>
+            </svg>
+        </a>
+    </div>
+
+    <div class="code">
+        403
+    </div>
+
+    <div class="message" style="padding: 10px;">
+        This action is unauthorized.
+    </div>
+</div>
+</body>
+</html>
