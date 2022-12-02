@@ -1,14 +1,14 @@
 {
   "name": "botpa",
   "version": "1.0.0",
-  "description": "Bot Auto Reply Perkara ",
+  "description": "Bot for whatsapp by samuel ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "anton.dwitjandra@gmail.com",
+  "author": "ashleysamuel03@gmailcom",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/baileys": "github:adiwajshing/baileys",
