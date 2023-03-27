@@ -1,6 +1,3 @@
-
-
-
 const {
     default: makeWASocket,
 	MessageType, 
@@ -36,18 +33,10 @@ const User = require('./models/user')
 
 
 
-
-
-
 mongoose.connect('mongodb+srv://whatsapp:wrkaxoBJXyJLHiPh@cluster0.ugwf8vf.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser : true})
 const db = mongoose.connection
 db.on('error', error => console.log(error))
 db.on('open', () =>console.log('connected to the database'))
-
-
-
-
-
 
 
 
@@ -87,10 +76,6 @@ async function connectToWhatsApp() {
     });
 
     sock.ev.on("creds.update", saveState);
-
-
-
-
 
 
 
@@ -252,9 +237,7 @@ async function connectToWhatsApp() {
 }
 
 
-//get shop banner
-
-            
+//get shop banner      
 const getShopBanner = async (responseId,Sender)=>{
 
 
@@ -283,9 +266,7 @@ const getShopBanner = async (responseId,Sender)=>{
     ##########################################################################################
    */
 
-
                  
-
                 const buttonInfo = {
                         image: { url: img},
                         caption: "Business card",
@@ -303,7 +284,6 @@ const getShopBanner = async (responseId,Sender)=>{
 }
 
 //get products from a shop
-
 const getProducts = async (responseId,Num,Sender)=>{
               try{
               const S_id = responseId
@@ -351,61 +331,51 @@ const getProducts = async (responseId,Num,Sender)=>{
         await sock.sendMessage(Sender,{text:"sorry,we couldnt find products in that shop. By the way, did you know that you can also create list products and reach your customers via our platform! Send us a message now on 0742202619 to know more."})
       
     }
-
-
-
-
-
-
    }
-
-
-
 
 //get product banner
 
-            const getProductBanner = async (responseId,Sender)=>{
+const getProductBanner = async (responseId,Sender)=>{
 
 
-              //function to get the pproduct banner and send it to the user as a button.
+      //function to get the pproduct banner and send it to the user as a button.
 
-                const Id = responseId
-                
-                const pra = await Product.findOne({_id:Id }).exec()
-                .then(response=>{
-                  return response
-                })
-               //sso = "./public"
-                const img = pra.image_url
-                //const media = await MessageMedia.fromFilePath(img);
-               // await client.sendMessage(msg.from, media);
-                
+	const Id = responseId
 
-               /* #######################################################################################
-                                      Send buttons in the baileys library
-                                      there has to be an image on the buttons. dont forget that
-                ##########################################################################################
-               */
+	const pra = await Product.findOne({_id:Id }).exec()
+	.then(response=>{
+	  return response
+	})
+       //sso = "./public"
+	const img = pra.image_url
+	//const media = await MessageMedia.fromFilePath(img);
+       // await client.sendMessage(msg.from, media);
 
 
-                                    const buttonInfo = {
-                                    image: { url: img},
-                                    caption: "product image",
-                                    footer:"",
-                                    buttons: [{ buttonId: Id,buttonText:{displayText: "Order Product" },type:1}],
-                                    headerType: 4,
-                                    viewOnce:true
-                                    
-                                }
-                                        
-                        await sock.sendMessage(Sender,buttonInfo);
+       /* #######################################################################################
+			      Send buttons in the baileys library
+			      there has to be an image on the buttons. dont forget that
+	##########################################################################################
+       */
 
-            }
+
+			    const buttonInfo = {
+			    image: { url: img},
+			    caption: "product image",
+			    footer:"",
+			    buttons: [{ buttonId: Id,buttonText:{displayText: "Order Product" },type:1}],
+			    headerType: 4,
+			    viewOnce:true
+
+			}
+
+		await sock.sendMessage(Sender,buttonInfo);
+
+    }
 
 
 //get product order.
-
-                const getProductOrder = async (responseId,Sender)=>{
+ const getProductOrder = async (responseId,Sender)=>{
 
     try{
 
@@ -450,67 +420,25 @@ const getProducts = async (responseId,Num,Sender)=>{
                    
 
 
-             }
-
-
-
-
+           }
 
     }catch(err){
       console.log(err.message)
 
       await sock.sendMessage(Sender,{text: "sorry,we are having trouble contacting \n the owner of the product right now."});
     }
-
-
-
-
-
-
-
 }
 
-                function ConcNum(Non){
-                      const last = "@s.whatsapp.net"
-                      const first ="256"
+	function ConcNum(Non){
+	      const last = "@s.whatsapp.net"
+	      const first ="256"
 
-                      const inter = first.concat(Non.substr(-9))
+	      const inter = first.concat(Non.substr(-9))
 
-                      const finalNumber = inter.concat(last)
-                      console.log(finalNumber)
-                      return finalNumber
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	      const finalNumber = inter.concat(last)
+	      console.log(finalNumber)
+	      return finalNumber
+	  }
 
 
     sock.ev.on("messages.upsert", async ({messages,type}) => {
@@ -569,8 +497,6 @@ const getProducts = async (responseId,Num,Sender)=>{
                         }
 
              }
-
-
 
                 //wait for the list response
             else if(responseList !=null){
