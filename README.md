@@ -7,4 +7,4 @@ One can upload the products to the chatbot database,then the chatbot will displa
 clone this repo
 ### #npm install
 -configure the database to your settings to your taste.
-it uses mongodb as a databse
+it uses mongodb as a database
